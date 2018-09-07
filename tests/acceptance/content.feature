@@ -17,4 +17,11 @@ Feature: Test that the page has the correct content
     Then  I can see there is a posts section on the page
 
 
-
+  Scenario: User can create new post
+    Given I am on the new post page
+    When I enter "Test Post" in the "title" field
+    And I enter "Test Content" in the "content" field
+    And I press the submit button
+    Then I am on the blog page
+    Given I wait for the posts to load
+    Then I can see there is a post with title "Test Post" in the posts section
